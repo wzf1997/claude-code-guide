@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 2px solid var(--ifm-color-primary);
+  transition: all 0.15s ease;
+  background: transparent;
+  color: var(--ifm-color-primary);
+}
+
+.button:hover {
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+.buttonComplete {
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+.buttonComplete:hover {
+  background: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+}
+
+.icon {
+  font-size: 1rem;
+}
