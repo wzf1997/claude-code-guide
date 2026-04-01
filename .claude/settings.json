@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(git push -u origin master)",
-      "Bash(pnpm install --no-frozen-lockfile)"
+      "Bash(pnpm install --no-frozen-lockfile)",
+      "Bash(pnpm ls @docusaurus/theme-common)"
     ]
   }
 }

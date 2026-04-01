@@ -10,7 +10,7 @@ const config: Config = {
   url: 'https://claude-code.guide',
   baseUrl: process.env.DEPLOY_TARGET === 'ghpages' ? '/claude-code-guide/' : '/',
 
-  organizationName: 'your-github-username',
+  organizationName: 'wzf1997',
   projectName: 'claude-code-guide',
 
   onBrokenLinks: 'warn',
@@ -46,7 +46,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/',
-          editUrl: 'https://github.com/your-github-username/claude-code-guide/edit/main/',
+          editUrl: 'https://github.com/wzf1997/claude-code-guide/edit/main/',
           showLastUpdateTime: true,
         },
         blog: false,
