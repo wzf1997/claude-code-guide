@@ -33,8 +33,148 @@
   color: var(--ifm-color-primary);
   text-decoration: none;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .link:hover {
   text-decoration: underline;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  border: 0;
+  background: rgba(15, 23, 42, 0.42);
+  z-index: 999;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  width: min(56rem, 92vw);
+  height: 100vh;
+  background: var(--ifm-background-surface-color);
+  box-shadow: -24px 0 48px rgba(15, 23, 42, 0.18);
+  z-index: 1000;
+  animation: slideIn 180ms ease-out;
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--card-border, #e2e8f0);
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.08), rgba(59, 130, 246, 0));
+}
+
+.drawerHeaderText {
+  min-width: 0;
+}
+
+.drawerTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  word-break: break-all;
+}
+
+.drawerMeta {
+  margin-top: 0.25rem;
+  color: var(--ifm-color-content-secondary);
+  font-size: 0.8rem;
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.closeButton {
+  border: 1px solid var(--card-border, #cbd5e1);
+  background: transparent;
+  border-radius: 999px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  color: var(--ifm-font-color-base);
+}
+
+.drawerBody {
+  flex: 1;
+  overflow: auto;
+  padding: 1rem 0;
+}
+
+.state,
+.stateError {
+  margin: 0;
+  padding: 0 1.25rem;
+}
+
+.stateError {
+  color: #dc2626;
+}
+
+.codeBlock {
+  margin: 0;
+  padding: 0 1.25rem 1.25rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.codeLine,
+.codeLineActive {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+  min-height: 1.6rem;
+  scroll-margin-top: 6rem;
+}
+
+.codeLineActive {
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 0.35rem;
+}
+
+.lineNumber {
+  display: inline-block;
+  text-align: right;
+  color: var(--ifm-color-content-secondary);
+  user-select: none;
+}
+
+.lineContent {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .drawer {
+    width: 100vw;
+  }
+
+  .drawerHeader {
+    padding: 0.9rem 1rem;
+  }
+
+  .codeBlock {
+    padding: 0 1rem 1rem;
+  }
+
+  .codeLine,
+  .codeLineActive {
+    grid-template-columns: 2.75rem minmax(0, 1fr);
+    gap: 0.75rem;
+  }
 }
