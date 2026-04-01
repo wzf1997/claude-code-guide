@@ -60,6 +60,10 @@ const config: Config = {
           label: '开始学习',
         },
         {
+          type: 'custom-themeSwitcher',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/your-github-username/claude-code-guide',
           label: 'GitHub',
           position: 'right',
