@@ -14,7 +14,6 @@ const config: Config = {
   projectName: 'claude-code-guide',
 
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
 
   i18n: {
     defaultLocale: 'zh-Hans',
