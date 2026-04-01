@@ -1,23 +1,109 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
 
-.heroBanner {
-  padding: 4rem 0;
+.hero {
   text-align: center;
-  position: relative;
-  overflow: hidden;
+  padding: 4rem 0 2rem;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.buttons {
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: var(--ifm-color-content-secondary);
+  margin-bottom: 2rem;
+}
+
+.heroButtons {
   display: flex;
-  align-items: center;
+  gap: 1rem;
   justify-content: center;
+}
+
+.btnPrimary {
+  padding: 0.75rem 2rem;
+  background: var(--ifm-color-primary);
+  color: #fff !important;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: background 0.15s;
+}
+
+.btnPrimary:hover {
+  background: var(--ifm-color-primary-dark);
+}
+
+.btnSecondary {
+  padding: 0.75rem 2rem;
+  border: 2px solid var(--ifm-color-primary);
+  color: var(--ifm-color-primary) !important;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: all 0.15s;
+}
+
+.btnSecondary:hover {
+  background: var(--ifm-color-primary);
+  color: #fff !important;
+}
+
+.progressSection {
+  margin: 1rem 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.card {
+  display: block;
+  padding: 1.25rem;
+  background: var(--card-bg, #f8fafc);
+  border: 1px solid var(--card-border, #e2e8f0);
+  border-radius: 10px;
+  text-decoration: none !important;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.cardHeader {
+  margin-bottom: 0.5rem;
+}
+
+.cardTag {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.cardTitle {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+}
+
+.cardMeta {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--ifm-color-content-secondary);
 }
