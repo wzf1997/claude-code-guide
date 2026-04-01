@@ -1,0 +1,14 @@
+name: Vercel Deployment Note
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  note:
+    name: Vercel auto-deploys on push to main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deployment note
+        run: echo "Vercel auto-deploys from GitHub integration. No manual trigger needed. Setup at vercel.com"
