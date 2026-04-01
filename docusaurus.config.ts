@@ -35,6 +35,8 @@ const config: Config = {
         docsRouteBasePath: '/',
         indexBlog: false,
         searchResultLimits: 8,
+        searchBarShortcut: true,
+        searchBarShortcutHint: true,
       },
     ],
   ],

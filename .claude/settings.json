@@ -3,7 +3,8 @@
     "allow": [
       "Bash(git push -u origin master)",
       "Bash(pnpm install --no-frozen-lockfile)",
-      "Bash(pnpm ls @docusaurus/theme-common)"
+      "Bash(pnpm ls @docusaurus/theme-common)",
+      "Bash(node -e \"const pkg = require\\(''/Users/admin/Desktop/claude-code-guide/node_modules/@easyops-cn/docusaurus-search-local/package.json''\\); console.log\\(pkg.version\\)\")"
     ]
   }
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import ProgressBar from '../components/ProgressBar';
 import styles from './index.module.css';
 
@@ -43,6 +44,9 @@ function QrModal({ src, title, onClose }: { src: string; title: string; onClose:
 
 export default function Home(): React.ReactElement {
   const [qr, setQr] = useState<{ src: string; title: string } | null>(null);
+  const imgAvatar = useBaseUrl('/img/avatar.jpg');
+  const imgGzh = useBaseUrl('/img/gzh.jpg');
+  const imgWx = useBaseUrl('/img/wx.jpg');
 
   return (
     <Layout
@@ -60,7 +64,7 @@ export default function Home(): React.ReactElement {
               {/* top: avatar + name/handle side by side */}
               <div className={styles.authorTop}>
                 <div className={styles.avatarWrap}>
-                  <img src="/img/avatar.jpg" alt="Fly" className={styles.avatar} />
+                  <img src={imgAvatar} alt="Fly" className={styles.avatar} />
                 </div>
                 <div className={styles.authorMeta}>
                   <h2 className={styles.authorName}>Fly</h2>
@@ -89,14 +93,14 @@ export default function Home(): React.ReactElement {
                 </a>
                 <button
                   className={styles.socialBtn}
-                  onClick={() => setQr({ src: '/img/gzh.jpg', title: '公众号：Fly的AI研习社' })}
+                  onClick={() => setQr({ src: imgGzh, title: '公众号：Fly的AI研习社' })}
                 >
                   <WechatIcon />
                   公众号
                 </button>
                 <button
                   className={styles.socialBtn}
-                  onClick={() => setQr({ src: '/img/wx.jpg', title: '微信：加好友交流' })}
+                  onClick={() => setQr({ src: imgWx, title: '微信：加好友交流' })}
                 >
                   <WechatIcon />
                   微信
@@ -186,22 +190,22 @@ export default function Home(): React.ReactElement {
           <div className={styles.qrRow}>
             <div
               className={styles.qrItem}
-              onClick={() => setQr({ src: '/img/gzh.jpg', title: '公众号：Fly的AI研习社' })}
+              onClick={() => setQr({ src: imgGzh, title: '公众号：Fly的AI研习社' })}
               role="button"
               tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && setQr({ src: '/img/gzh.jpg', title: '公众号：Fly的AI研习社' })}
+              onKeyDown={(e) => e.key === 'Enter' && setQr({ src: imgGzh, title: '公众号：Fly的AI研习社' })}
             >
-              <img src="/img/gzh.jpg" alt="公众号二维码" className={styles.qrThumb} />
+              <img src={imgGzh} alt="公众号二维码" className={styles.qrThumb} />
               <span className={styles.qrLabel}>扫码关注公众号</span>
             </div>
             <div
               className={styles.qrItem}
-              onClick={() => setQr({ src: '/img/wx.jpg', title: '微信：加好友交流' })}
+              onClick={() => setQr({ src: imgWx, title: '微信：加好友交流' })}
               role="button"
               tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && setQr({ src: '/img/wx.jpg', title: '微信：加好友交流' })}
+              onKeyDown={(e) => e.key === 'Enter' && setQr({ src: imgWx, title: '微信：加好友交流' })}
             >
-              <img src="/img/wx.jpg" alt="微信二维码" className={styles.qrThumb} />
+              <img src={imgWx} alt="微信二维码" className={styles.qrThumb} />
               <span className={styles.qrLabel}>扫码添加微信</span>
             </div>
           </div>
