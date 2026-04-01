@@ -24,6 +24,7 @@ export default function SourceRef({ file, lines }: Props): React.ReactElement {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [content, setContent] = useState('');
+  const drawerBodyRef = useRef<HTMLDivElement | null>(null);
   const activeLineRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -43,13 +44,27 @@ export default function SourceRef({ file, lines }: Props): React.ReactElement {
 
   useEffect(() => {
     if (!isOpen || !content || !activeLineRef.current) {
-      return;
+      return undefined;
     }
 
-    activeLineRef.current.scrollIntoView({
-      block: 'center',
-      inline: 'nearest',
+    const frameId = window.requestAnimationFrame(() => {
+      const drawerBody = drawerBodyRef.current;
+      const activeLine = activeLineRef.current;
+
+      if (!drawerBody || !activeLine) {
+        return;
+      }
+
+      const targetTop =
+        activeLine.offsetTop - drawerBody.clientHeight / 2 + activeLine.clientHeight / 2;
+
+      drawerBody.scrollTo({
+        top: Math.max(0, targetTop),
+        behavior: 'smooth',
+      });
     });
+
+    return () => window.cancelAnimationFrame(frameId);
   }, [content, isOpen]);
 
   const closeDrawer = () => {
@@ -128,7 +143,7 @@ export default function SourceRef({ file, lines }: Props): React.ReactElement {
               </button>
             </div>
 
-            <div className={styles.drawerBody}>
+            <div ref={drawerBodyRef} className={styles.drawerBody}>
               {isLoading && <p className={styles.state}>源码加载中...</p>}
               {!isLoading && error && (
                 <p className={styles.stateError}>加载失败：{error}</p>
@@ -142,11 +157,12 @@ export default function SourceRef({ file, lines }: Props): React.ReactElement {
                         lineNumber >= lineRange.start &&
                         lineNumber <= (lineRange.end ?? lineRange.start),
                     );
+                    const isScrollTarget = lineRange?.start === lineNumber;
 
                     return (
                       <div
                         key={lineNumber}
-                        ref={isActive ? activeLineRef : undefined}
+                        ref={isScrollTarget ? activeLineRef : undefined}
                         className={
                           isActive ? styles.codeLineActive : styles.codeLine
                         }
