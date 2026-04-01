@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git push -u origin master)"
+      "Bash(git push -u origin master)",
+      "Bash(pnpm install --no-frozen-lockfile)"
     ]
   }
 }
